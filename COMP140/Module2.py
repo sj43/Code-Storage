@@ -1,12 +1,11 @@
-"""
-Seung Hun Jang
-COMP140 - Code to implement the game of Spot it!
 
-This code creates a deck of playable Spot It cards,considering
-the equivalency and incidency between points(imgaes on card) and lines(cards).
-
-Actual game: http://www.blueorangegames.com/spotit/
-"""
+# Seung Hun Jang
+# COMP140 - Code to implement the game of Spot it!
+#
+# This code creates a deck of playable Spot It cards,considering
+# the equivalency and incidency between points(imgaes on card) and lines(cards).
+#
+# Actual game: http://www.blueorangegames.com/spotit/
 
 
 def modmult(num1, num2, mod):
