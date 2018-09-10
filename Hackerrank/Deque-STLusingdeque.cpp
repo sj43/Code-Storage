@@ -7,7 +7,7 @@ using namespace std;
 void printKMax(int arr[], int n, int k){
         deque<int> Qi(k);
         int i;
-        for(int i=0; i<k; i++) {
+        for(i=0; i<k; i++) {
                 while((!Qi.empty()) && arr[i] >= arr[Qi.back()])
                         Qi.pop_back();
                 Qi.push_back(i);
@@ -20,16 +20,19 @@ void printKMax(int arr[], int n, int k){
                         Qi.pop_back();
                 Qi.push_back(i);
         }
-        cout<<arr[Qi.front()];
+        cout<<arr[Qi.front()]<<endl;
 }
 int main(){
         int t;
+        cout<<"input t: ";
         cin >> t;
         while(t>0) {
                 int n,k;
+                cout<<"input n and k: ";
                 cin >> n >> k;
                 int i;
                 int arr[n];
+                cout<<"input arr elements: ";
                 for(i=0; i<n; i++)
                         cin >> arr[i];
                 printKMax(arr, n, k);
