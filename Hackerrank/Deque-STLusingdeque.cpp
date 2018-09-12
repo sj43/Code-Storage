@@ -12,7 +12,7 @@ void printKMax(int arr[], int n, int k){
                         Qi.pop_back();
                 Qi.push_back(i);
         }
-        for(;i<n;++i){
+        for(; i<n; ++i) {
                 cout<<arr[Qi.front()]<<" ";
                 while((!Qi.empty()) && Qi.front()<= i-k)
                         Qi.pop_front();
