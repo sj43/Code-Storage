@@ -6,6 +6,25 @@
 #include <cassert>
 using namespace std;
 /*Write the class AddElements here*/
+template <class T> class AddElements {
+    public:
+        T element;
+        AddElements(T i) {element = i;}
+        T add(T i) {return element+i;}
+    private:
+
+};
+template<> class AddElements<string>{
+  string element;
+public:
+  AddElements(string element){
+    this->element = element;
+  }
+  string concatenate(string second_element){
+    return element + second_element;
+  }
+};
+
 int main () {
   int n,i;
   cin >> n;
