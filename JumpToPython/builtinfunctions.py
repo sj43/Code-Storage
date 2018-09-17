@@ -1,3 +1,2 @@
-dir([1,2,3])
-dir({1:'a'})
-for i, name in enumerate()
+for i, name in enumerate(['body','foo','bar']):
+    print(i,name)
