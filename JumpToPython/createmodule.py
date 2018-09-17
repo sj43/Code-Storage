@@ -1,6 +1,5 @@
 import mod1
 
-
 print(mod1.PI)
 a = mod1.Math()
 print(a.solv(2))
