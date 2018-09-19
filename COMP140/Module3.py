@@ -1,14 +1,16 @@
 
 # Model
+from collections import defaultdict
 
 
-def create_list_of_tuples_given_order(order):
-    list_of_tuples = []
-    dummy_list = []
-    repetition = 0
-    while repetition <= order:
-        for idx in range(3):
-            
+def getDictionaryFromData(data):
+    result = {}
+    for dt in data:
+        if dt in result:
+            result[dt] += 1
+        else:
+            result[dt] = 1
+    return result
 
 
 def markov_chain(data, order):
@@ -16,10 +18,11 @@ def markov_chain(data, order):
     Create a Markov chain with the given order from the
     given list of data.
     """
+    # basic info contains information about data.
+    basic_info = getDictionaryFromData(data)
+    list_of_keys = basic_info.keys
 
-    Markovchain = {}
-    return tuple_for_key
-
+    return {}
 
 print(markov_chain([3, 1, 2, 1, 1, 2, 3, 1, 3, 0, 2, 0, 0, 0, 2, 1], 1))
 
