@@ -1,7 +1,5 @@
 multiples = [i for i in range(30) if i%3==0]
 print(multiples)
-<<<<<<< HEAD
-=======
 
 squared = []
 for x in range(10):
@@ -32,4 +30,3 @@ multiples_gen = (i for i in range(30) if i%3 ==0)
 print(multiples_gen)
 for x in multiples_gen:
     print(x)
->>>>>>> 39342a1a60f62b3337ec543e4f657bf3eb0075a0
