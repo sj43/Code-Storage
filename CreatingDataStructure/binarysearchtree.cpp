@@ -54,6 +54,7 @@ struct node* insert(struct node* node, int key){
 }
 
 
+
 int main(){
   struct node* root = NULL;
   root = insert(root, 50);
