@@ -1,6 +1,10 @@
 // this is a binary search tree in C
-#include<stdio.h>
-#include<stdlib.h>
+// to change the code from C to C++, we need to change 'free' to 'delete'.
+
+//#include<iostream>
+//#include<stack>
+#include<bits/stdc++.h>
+using namespace std;
 
 struct node{
   int key;
@@ -21,6 +25,23 @@ void inorder(struct node* root){
     inorder(root->right);
   }
 }
+
+
+void inorderWithStack(struct node* root){
+  stack<node*> s;
+  node* curr = root;
+  while( curr!=NULL || s.empty()==false ){
+    while(curr!=NULL){
+      s.push(curr);
+      curr = curr->left;
+    }
+    curr = s.top();
+    s.pop();
+    cout<<curr->key<<" ";
+    curr = curr->right;
+  }
+}
+
 
 void preorder(struct node* root){
   if(root!=NULL){
@@ -54,6 +75,37 @@ struct node* insert(struct node* node, int key){
 }
 
 
+struct node* minValueNode(struct node* root){
+  if(root->left == NULL) return root;
+  return minValueNode(root->left);
+}
+
+
+struct node* deleteNode(struct node* root, int key){
+  if(root==NULL) return root;
+  else if(root->key < key) root->right = deleteNode(root->right, key);
+  else if(root->key > key) root->left = deleteNode(root->left, key);
+  else{
+    // one child
+    if(root->left == NULL){
+      struct node* temp = root;
+      root = root->right;
+      free(temp);
+    }
+    else if(root->right == NULL){
+      struct node* temp = root;
+      root = root->left;
+      free(temp);
+    }
+    // two child (get the minimum of the right subtree)
+    else{
+      struct node* temp = minValueNode(root->right);
+      root->key = temp->key;
+      root->right = deleteNode(root->right, temp->key);
+    }
+  }
+  return root;
+}
 
 int main(){
   struct node* root = NULL;
@@ -65,9 +117,13 @@ int main(){
   insert(root, 60);
   insert(root, 80);
   inorder(root);
+  root = deleteNode(root, 50);
+  printf("Inorder traversal of the modified tree \n");
+  inorder(root);
   printf("\n");
-  preorder(root);
+  root = deleteNode(root, 30);
+  inorder(root);
   printf("\n");
-  postorder(root);
+  inorderWithStack(root);
   return 0;
 }
