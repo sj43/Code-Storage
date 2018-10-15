@@ -22,7 +22,9 @@ void printList(Node*head){
     head = head->next;
   }cout<<"nullptr\n";
 }
-bool isPalindromeIter2(Node* head){
+
+// Iterative Solution using Stack
+bool isPalindromeIter(Node* head){
   if(head==nullptr || head->next == nullptr){
     return true;
   }
@@ -47,6 +49,26 @@ bool isPalindromeIter2(Node* head){
   }
   return true;
 }
+
+
+// recursive solution
+bool isPalindromeRecurHelper(Node*&left, Node*right){
+  if(right==nullptr){
+    return true;
+  }
+  bool isPalindrome = isPalindromeRecurHelper(left, right->next);
+  if(!isPalindrome){
+    return false;
+  }
+  isPalindrome = (left->data == right->data);
+  left = left->next;
+  return isPalindrome;
+}
+
+bool isPalindromeRecur(Node*head){
+  return isPalindromeRecurHelper(head,head);
+}
+
 int main(){
   Node* root = nullptr;
   insert(root,'a');
@@ -59,4 +81,23 @@ int main(){
   insert(root,'b');
   insert(root,'a');
   printList(root);
+
+
+  Node * head = nullptr;
+  insert( head, 'a' );
+  insert( head, 'b' );
+  insert( head, 'c' );
+  insert( head, 'b' );
+  insert( head, 'a' );
+  std::cout << "List 3: ";
+  printList(head);
+
+  if ( isPalindromeRecur(head) ) {
+    std::cout << "List 3 is pallindrome list\n";
+  } else {
+    std::cout << "List 3 is not a pallindrome list\n";
+  }
+  std::cout << "List 3: ";
+  printList(head);
+  return 0;
 }
