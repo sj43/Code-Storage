@@ -1,38 +1,19 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
-int n;
-int a[500][500];
-int d[500][500];
-int dx[] = {0,0,1,-1};
-int dy[] = {1,-1,0,0};
-int go(int i, int j){
-  if(d[i][j]!=0){
-    return d[i][j];
-  }
-  d[i][j]=1;
-  for(int k=0;k<4;k++){
-    int x = i + dx[k];
-    int y = j + dy[k];
-    if(x<0 || x>=n || y<0 || y>=n) continue;
-    if(a[i][j] < a[x][y]){
-      d[i][j] = max(d[i][j], go(x,y)+1);
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n+1);
+    for (int i=1; i<=n; i++) {
+        cin >> a[i];
     }
-  }
-  return d[i][j];
-}
-int main(){
-  cin>>n;
-  for(int i=0;i<n;i++){
-    for(int j=0;j<n;j++){
-      cin>>a[i][j];
+    vector<int> d(n+1);
+    for (int i=1; i<=n; i++) {
+        for (int j=1; j<=i; j++) {
+            d[i] = max(d[i],d[i-j]+a[j]);
+        }
     }
-  }
-  int ans=0;
-  for(int i=0;i<n;i++){
-    for(int j=0;j<n;j++){
-      ans = max(ans,go(i,j));
-    }
-  }
-  cout<<ans<<'\n';
-  return 0;
+    cout << d[n] << '\n';
+    return 0;
 }
