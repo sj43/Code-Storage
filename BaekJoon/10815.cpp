@@ -2,14 +2,6 @@
 using namespace std;
 vector<int> DN;
 
-// int binarysearch(int lo, int hi, int m){
-//   int mid = (lo+hi)/2;
-//   if(lo>hi) return -1;
-//   if(m==DN[mid]) return mid;
-//   else if(m < DN[mid]) return binarysearch(lo,mid-1,m);
-//   else return binarysearch(mid+1,hi,m);
-// }
-
 int binarysearch(int n, int key){
   int start = 0;
   int end = n-1;
