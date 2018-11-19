@@ -1,11 +1,41 @@
+// using math
+
+// #include <iostream>
+//
+// int main() {
+//     int A, B, V, d;
+//     scanf("%d %d %d", &A, &B, &V);
+//     d = (V - A - 1) / (A - B) + 2;
+//     printf("%d\n", d);
+//
+//     return 0;
+// }
+
+
+// using binary search
+
 #include<bits/stdc++.h>
 using namespace std;
+int A,B,V;
+const int INF = 1000000001;
+long long binarySearch(){
+    long long left = 0;
+    long long right = V / (A-B) + 1;
+    long long totalDay;
+    long long result = INF;
+    while(left <= right){
+        totalDay = (left+right)/2;
+        if (V <= totalDay * (A-B) + A){
+            result = min(result, totalDay+1);
+            right = totalDay - 1;
+        }else{
+            left = totalDay + 1;
+        }
+    }
+    return result;
+}
 int main(){
-  return 0;
-  long long A,B,V;
-  cin>>A>>B>>V;
-  long long ans = V / (A-B);
-  long long mod_ans = V % (A-B);
-  if(mod_ans <= B) cout<<ans<<'\n';
-  else cout<<ans+1<<'\n';
+    cin>>A>>B>>V;
+    cout<<binarySearch()<<'\n';
+    return 0;
 }
