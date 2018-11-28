@@ -12,5 +12,4 @@ class Log(object):
         self.current = (self.current + 1) % self.n
 
     def get_last(self, i):
-        return self._log[self.current-i]
- 
+        return self._log[self.current - i]
