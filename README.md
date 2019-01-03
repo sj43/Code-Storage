@@ -1,2 +1,2 @@
 # Code-Storage
-This repository stores my various coding practices.
+Storage for coding practice
