@@ -5,9 +5,9 @@ A more complex fill demo
 
 In addition to the basic fill plot, this demo shows a few optional features:
 
-* Multiple curves with a single command.
-* Setting the fill color.
-* Setting the opacity (alpha value).
+    * Multiple curves with a single command.
+    * Setting the fill color.
+    * Setting the opacity (alpha value).
 """
 import numpy as np
 import matplotlib.pyplot as plt
