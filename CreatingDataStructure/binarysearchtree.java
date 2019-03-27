@@ -63,7 +63,7 @@ class binarysearchtree{
     tree.insert(70);
     tree.insert(60);
     tree.insert(80);
-
+    tree.insert(90);
     // print inorder traversal of the BST
     tree.inorder();
   }
