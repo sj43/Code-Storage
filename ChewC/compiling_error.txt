@@ -1,0 +1,6 @@
+C:\Users\shjan\AppData\Local\Temp\cc6Y2WHi.o:main.c:(.text+0x16): undefined reference to `CreateNode'
+C:\Users\shjan\AppData\Local\Temp\cc6Y2WHi.o:main.c:(.text+0x2e): undefined reference to `InsertNode'
+C:\Users\shjan\AppData\Local\Temp\cc6Y2WHi.o:main.c:(.text+0x46): undefined reference to `InsertNode'
+C:\Users\shjan\AppData\Local\Temp\cc6Y2WHi.o:main.c:(.text+0x5e): undefined reference to `InsertNode'
+C:\Users\shjan\AppData\Local\Temp\cc6Y2WHi.o:main.c:(.text+0x6e): undefined reference to `PrintNodeFrom'
+collect2.exe: error: ld returned 1 exit status
