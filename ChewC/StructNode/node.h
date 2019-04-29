@@ -1,3 +1,5 @@
+#pragma once
+
 struct Node* CreateNode(int data);
 struct Node* InsertNode(struct Node* current, int data);
 void DestroyNode(struct Node* destroy, struct Node* head);
